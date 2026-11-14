@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solus FX. Animated explainers, sports and product films.</title>
+<meta name="description" content="Solus FX. Animated explainers, sports animation and product films.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --paper:#efe8d8; --cell:#f6f1e5; --ink:#15130f; --red:#e3411d; --mute:#5c574d;
+  --rule:1.5px solid var(--ink);
+  --disp:"Archivo","Arial Narrow",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --pad:clamp(12px,2.3vw,32px); --in:clamp(10px,1vw,14px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.45 var(--disp);-webkit-font-smoothing:antialiased;padding:var(--pad)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.sheet{max-width:1640px;margin-inline:auto;border:var(--rule);background:var(--paper)}
+.cond{font-family:var(--disp);font-stretch:62%;font-weight:800;text-transform:uppercase;letter-spacing:-.005em}
+.mono{font:500 12px/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+
+/* header */
+.top{display:flex;align-items:stretch;border-bottom:var(--rule)}
+.mark{flex:1;display:flex;align-items:center;padding:14px clamp(14px,1.6vw,24px);font-size:clamp(26px,2.4vw,34px);line-height:1;white-space:nowrap}
+.nav{display:flex}
+.nav a{display:flex;align-items:center;padding:0 clamp(12px,1.7vw,26px);border-left:var(--rule);font:500 12.5px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;transition:background .15s,color .15s}
+.nav a:hover{background:var(--ink);color:var(--paper)}
+.nav a.cta{background:var(--red);color:#fff}
+
+/* hero */
+.hero{display:grid;grid-template-columns:3fr 2fr;border-bottom:var(--rule)}
+.hero-l{display:flex;flex-direction:column;justify-content:space-between;gap:36px;padding:clamp(16px,1.9vw,28px);min-width:0}
+.hero-l .mono{display:flex;justify-content:space-between;gap:16px;color:var(--mute)}
+h1{font-size:clamp(58px,9.3vw,136px);line-height:.85;margin:0}
+.hero-b{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 32px;align-items:end;border-top:var(--rule);padding-top:clamp(16px,1.6vw,22px)}
+.lede{margin:0;font-size:clamp(16.5px,1.4vw,20px);line-height:1.4;font-weight:500;max-width:27em}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:12px;font:700 15.5px/1 var(--disp);padding:17px 22px;border:var(--rule);background:var(--ink);color:var(--paper);transition:transform .15s,box-shadow .15s}
+.btn.alt{background:transparent;color:var(--ink)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.btn.on-red:hover{box-shadow:4px 4px 0 rgba(21,19,15,.35)}
+.hero-r{background:var(--red);border-left:var(--rule);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(16px,1.8vw,26px);padding:clamp(24px,3vw,44px) 20px clamp(16px,1.6vw,22px);position:relative}
+.film{position:relative;display:block;width:min(100%,clamp(220px,25vw,372px));aspect-ratio:9/16;border:var(--rule);box-shadow:clamp(6px,.8vw,12px) clamp(6px,.8vw,12px) 0 var(--ink);background:var(--ink)}
+.film img{width:100%;height:100%;object-fit:cover}
+.play{position:absolute;left:14px;bottom:14px;width:60px;height:60px;border-radius:50%;background:var(--paper);border:var(--rule);display:grid;place-items:center}
+.play svg{width:17px;height:17px;margin-left:3px}
+.hero-r .mono{align-self:stretch;display:flex;justify-content:space-between;gap:12px;color:var(--ink);padding-inline:4px}
+
+/* section bars */
+.bar{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:end;gap:10px clamp(14px,2vw,28px);padding:clamp(34px,4.6vw,68px) clamp(14px,1.9vw,28px) clamp(12px,1.3vw,18px);border-bottom:var(--rule)}
+.bar .mono{padding-bottom:.9em}
+h2{font-size:clamp(50px,7.6vw,118px);line-height:.82;margin:0}
+
+/* ruled contact sheet */
+.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.cell{border-right:var(--rule);border-bottom:var(--rule);padding:var(--in);display:flex;flex-direction:column;min-width:0;background:var(--cell)}
+.grid>.cell:nth-child(5n),.grid>.cell.last{border-right:0}
+.tile .ph{display:block;position:relative;aspect-ratio:9/16;overflow:hidden;background:var(--ink);border:var(--rule)}
+.tile .ph.wide{aspect-ratio:16/9}
+.tile .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.tile:hover .ph img{transform:scale(1.03)}
+.tile .mono{display:flex;justify-content:space-between;gap:8px;padding-top:11px;color:var(--mute)}
+.tile b{display:block;font-size:clamp(22px,1.95vw,28px);line-height:.95;margin-top:9px;transition:color .15s}
+.tile:hover b{color:var(--red)}
+.tile .d{display:block;font-size:13.5px;line-height:1.38;color:#3b372f;margin-top:7px;padding-bottom:6px}
+.feature{grid-column:span 2;grid-row:span 2}
+.feature b{font-size:clamp(34px,4.2vw,64px);line-height:.86;margin-top:12px}
+.feature .d{font-size:clamp(14px,1.2vw,17px);max-width:26em}
+.tag{position:absolute;left:0;top:0;background:var(--red);color:#fff;font:500 11.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;border-right:var(--rule);border-bottom:var(--rule)}
+.w2{grid-column:span 2}.w3{grid-column:span 3}
+.note{justify-content:space-between;gap:24px;padding:clamp(12px,1.4vw,20px)}
+.note p{margin:0;font-size:clamp(24px,2.5vw,38px);line-height:.92}
+.note.big p{font-size:clamp(30px,4.3vw,66px);line-height:.88}
+.note.ink{background:var(--ink);color:var(--paper)}
+.note .go{font:500 12.5px/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;display:flex;justify-content:space-between;gap:8px;border-top:1.5px solid currentColor;padding-top:12px}
+
+/* how */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));counter-reset:s}
+.steps li{counter-increment:s;border-right:var(--rule);border-bottom:var(--rule);padding:clamp(14px,1.6vw,24px);min-height:clamp(180px,17vw,250px);display:flex;flex-direction:column;background:var(--cell)}
+.steps li:last-child{border-right:0}
+.steps .mono{display:flex;justify-content:space-between;color:var(--mute)}
+.steps .mono::before{content:"0" counter(s)}
+.steps .mono span{color:var(--red);font-size:17px;line-height:.7}
+.steps h3{font-size:clamp(34px,3.7vw,56px);line-height:.86;margin:auto 0 10px}
+.steps p{margin:0;font-size:15.5px;max-width:19em;color:#3b372f}
+
+/* contact */
+.contact{background:var(--red);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 40px;align-items:end;padding:clamp(40px,6vw,96px) clamp(14px,1.9vw,28px) clamp(20px,2.4vw,36px);border-bottom:var(--rule)}
+.contact p{font-size:clamp(54px,9.6vw,150px);line-height:.82;margin:0;max-width:8.6em;text-wrap:balance}
+.btn.big{font-size:19px;padding:24px 34px}
+.foot{display:flex;justify-content:space-between;gap:16px;padding:14px clamp(14px,1.9vw,28px);color:var(--mute)}
+
+@media (max-width:980px){
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .hero-r{border-left:0;border-top:var(--rule)}
+  .hero-b{grid-template-columns:minmax(0,1fr)}
+  h1{font-size:clamp(54px,13.6vw,128px)}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid>.cell:nth-child(5n),.grid>.cell.last{border-right:var(--rule)}
+  .feature{grid-row:auto}
+  .feature,.w3,.w2.keep{grid-column:span 2;border-right:0!important}
+  .w2{grid-column:span 1}
+  .grid>.cell.r0{border-right:0}
+  .note p,.note.big p{font-size:clamp(24px,6.4vw,44px)}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps li:nth-child(2n){border-right:0}
+  .contact{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .top{flex-direction:column}
+  .mark{border-bottom:var(--rule);padding-block:12px}
+  .nav{overflow-x:auto;scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{padding:12px 6px;font-size:10.5px;letter-spacing:.01em;flex:1 1 auto;justify-content:center}
+  .steps .mono span{transform:rotate(90deg)}
+  .nav a:first-child{border-left:0}
+  .hero-l .mono span:last-child{display:none}
+  .film{width:min(72%,300px)}
+  .actions .btn{flex:1 1 auto;justify-content:center}
+  .bar .mono:last-child{grid-column:1/-1;padding-bottom:0}
+  .tile .d{font-size:13px}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .steps li{border-right:0;min-height:0;gap:26px}
+  .btn.big{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+
+.tile,.film{cursor:pointer;text-align:left;font:inherit;color:inherit}
+button.tile{border-left:0;border-top:0;border-radius:0;appearance:none}
+button.film{padding:0;border-radius:0;appearance:none}
+.note p.plain{font:500 clamp(16px,1.25vw,19px)/1.4 var(--disp);font-stretch:100%;text-transform:none;letter-spacing:0;max-width:30em}
+h1{font-size:clamp(50px,8vw,118px)}
+.contact p.sub{font:500 clamp(17px,1.5vw,22px)/1.4 var(--disp);font-stretch:100%;text-transform:none;letter-spacing:0;margin-top:18px;max-width:26em}
+.lb{position:fixed;inset:0;background:rgba(21,19,15,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.lb.on{display:flex}
+.lb video{max-width:min(100%,1280px);max-height:calc(100vh - 90px);border:1.5px solid var(--paper);background:#000}
+.lb .x{position:absolute;top:14px;right:16px;font:500 13px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--paper);background:none;border:1.5px solid var(--paper);padding:10px 14px;cursor:pointer}
+.lb .t{position:absolute;left:16px;top:20px;color:var(--paper)}
+</style>
+</head>
+<body>
+<div class="sheet">
+<header class="top"><a class="mark cond" href="#">SOLUS FX</a><nav class="nav" aria-label="Main"><a href="#explainers">Explainers</a><a href="#sports">Sports</a><a href="#product-films">Product films</a><a href="#process">Process</a><a href="#contact" class="cta">Contact</a></nav></header>
+<main>
+<section class="hero">
+<div class="hero-l">
+<p class="mono" style="margin:0"><span>Animation studio. United Kingdom.</span><span>Explainers / Sports / Product films</span></p>
+<h1 class="cond">Explainers.<br>Sports.<br>Product films.</h1>
+<div class="hero-b"><p class="lede">Solus FX makes short animated films for software, finance and technology companies, sports media and agencies. Run by Jordan, based in the UK.</p>
+<div class="actions"><a class="btn" href="#work">View work</a><a class="btn alt" href="#contact">Contact</a></div></div>
+</div>
+<div class="hero-r"><button class="film" data-v="black-holes" data-w="0" data-t="When Black Holes Collide" aria-label="Play When Black Holes Collide"><img src="thumbs/black-holes_hero.jpg" alt="Frame from When Black Holes Collide"><span class="play" aria-hidden="true"><svg viewBox="0 0 18 18"><path d="M3 1.5v15l13-7.5z" fill="#15130f"/></svg></span></button>
+<p class="mono" style="margin:0"><span>When Black Holes Collide</span><span>0:45</span></p></div>
+</section>
+<div id="work"><section id="explainers"><div class="bar"><span class="mono">01</span><h2 class="cond">Explainers</h2><span class="mono">4 films</span></div><div class="grid"><button class="cell tile feature" data-v="black-holes" data-w="0" data-t="When Black Holes Collide" aria-label="Play When Black Holes Collide"><span class="ph"><img src="thumbs/black-holes_feature.jpg" alt="Frame from When Black Holes Collide" loading="lazy"><span class="tag">Featured</span></span><span class="mono"><span>E/01</span><span>0:45 / 9:16</span></span><b class="cond">When Black Holes Collide</b><span class="d">Black hole mergers and gravitational waves. Neon line style.</span></button><button class="cell tile" data-v="kintsugi" data-w="0" data-t="Kintsugi" aria-label="Play Kintsugi"><span class="ph"><img src="thumbs/kintsugi.jpg" alt="Frame from Kintsugi" loading="lazy"></span><span class="mono"><span>E/02</span><span>0:50 / 9:16</span></span><b class="cond">Kintsugi</b><span class="d">The Japanese craft of repairing pottery with gold. Ink wash style.</span></button><button class="cell tile" data-v="sisyphus" data-w="0" data-t="Sisyphus" aria-label="Play Sisyphus"><span class="ph"><img src="thumbs/sisyphus.jpg" alt="Frame from Sisyphus" loading="lazy"></span><span class="mono"><span>E/03</span><span>1:01 / 9:16</span></span><b class="cond">Sisyphus</b><span class="d">Camus and the myth of Sisyphus. Shadow puppet style.</span></button><button class="cell tile" data-v="attachment" data-w="0" data-t="Attachment" aria-label="Play Attachment"><span class="ph"><img src="thumbs/attachment.jpg" alt="Frame from Attachment" loading="lazy"></span><span class="mono"><span>E/04</span><span>0:43 / 9:16</span></span><b class="cond">Attachment</b><span class="d">Attachment theory in under a minute. Pop-up book style.</span></button><div class="cell note last r0 keep" style="grid-column:span 3"><p class="plain">Short films that each explain one idea. 30 to 60 seconds, with voice-over, captions and sound. Vertical or widescreen.</p><span class="go"><span>4 films</span><span>Explainers</span></span></div></div></section><section id="sports"><div class="bar"><span class="mono">02</span><h2 class="cond">Sports</h2><span class="mono">3 films</span></div><div class="grid"><button class="cell tile" data-v="united-xi" data-w="0" data-t="A United eleven without Bruno" aria-label="Play A United eleven without Bruno"><span class="ph"><img src="thumbs/united-perfect-xi.jpg" alt="Frame from A United eleven without Bruno" loading="lazy"></span><span class="mono"><span>S/01</span><span>1:15 / 9:16</span></span><b class="cond">A United eleven without Bruno</b><span class="d">A full line-up explained pick by pick. Tactics board format.</span></button><button class="cell tile" data-v="palmer" data-w="0" data-t="The one signing: Palmer" aria-label="Play The one signing: Palmer"><span class="ph"><img src="thumbs/the-one-signing-palmer.jpg" alt="Frame from The one signing: Palmer" loading="lazy"></span><span class="mono"><span>S/02</span><span>0:39 / 9:16</span></span><b class="cond">The one signing: Palmer</b><span class="d">The case for signing Cole Palmer. Tactics board format.</span></button><button class="cell tile" data-v="go-down" data-w="0" data-t="Will United go down?" aria-label="Play Will United go down?"><span class="ph"><img src="thumbs/will-united-go-down.jpg" alt="Frame from Will United go down?" loading="lazy"></span><span class="mono"><span>S/03</span><span>0:57 / 9:16</span></span><b class="cond">Will United go down?</b><span class="d">Manchester United&#x27;s relegation risk, shown with the league table.</span></button><div class="cell note last r0 keep" style="grid-column:span 2"><p class="plain">Football analysis for social media. Line-ups, transfers and league tables.</p><span class="go"><span>3 films</span><span>Sports</span></span></div></div></section><section id="product-films"><div class="bar"><span class="mono">03</span><h2 class="cond">Product films</h2><span class="mono">1 film</span></div><div class="grid"><button class="cell tile w3" data-v="arbikie" data-w="1" data-t="Arbikie: The Wild One" aria-label="Play Arbikie: The Wild One"><span class="ph wide"><img src="thumbs/arbikie-the-wild-one.jpg" alt="Frame from Arbikie: The Wild One" loading="lazy"></span><span class="mono"><span>P/01</span><span>0:15 / 16:9</span></span><b class="cond">Arbikie: The Wild One</b><span class="d">A 15 second film for a single malt whisky.</span></button><div class="cell note last r0 keep" style="grid-column:span 2"><p class="plain">Concept work for Arbikie Distillery. Not a paid commission.</p><span class="go"><span>1 film</span><span>Product films</span></span></div></div></section></div>
+<section id="process"><div class="bar"><span class="mono">04</span><h2 class="cond">Process</h2><span class="mono">Four steps</span></div>
+<ol class="steps"><li><span class="mono"></span><h3 class="cond">Brief</h3><p>You send the subject, the audience and where the film will be shown.</p></li><li><span class="mono"></span><h3 class="cond">Script</h3><p>I write the script. You approve it before any design starts.</p></li><li><span class="mono"></span><h3 class="cond">Style frame</h3><p>You see one finished frame and approve the look.</p></li><li><span class="mono"></span><h3 class="cond">Film</h3><p>The finished film with voice-over, captions and sound, in the sizes you need.</p></li></ol></section>
+<section class="contact" id="contact"><div><p class="cond">Contact</p><p class="sub">For quotes and availability, email Jordan at soundsofsolus@gmail.com.</p></div><a class="btn big on-red" href="mailto:soundsofsolus@gmail.com">Email Jordan</a></section>
+</main>
+<footer class="foot mono"><span>Solus FX</span><span>United Kingdom, 2026</span></footer>
+</div>
+<div class="lb" id="lb" role="dialog" aria-modal="true"><span class="t mono" id="lbt"></span><button class="x" id="lbx">Close</button><video id="lbv" controls playsinline preload="none"></video></div>
+<script>
+const lb = document.getElementById('lb'), v = document.getElementById('lbv'), t = document.getElementById('lbt');
+const shut = () => { v.pause(); v.removeAttribute('src'); v.load(); lb.classList.remove('on'); };
+document.querySelectorAll('[data-v]').forEach(b => b.addEventListener('click', () => { v.src = 'video/' + b.dataset.v + '.mp4'; t.textContent = b.dataset.t; lb.classList.add('on'); v.play().catch(() => {}); }));
+document.getElementById('lbx').addEventListener('click', shut); lb.addEventListener('click', e => { if (e.target === lb) shut(); }); addEventListener('keydown', e => { if (e.key === 'Escape') shut(); });
+</script>
+</body></html>

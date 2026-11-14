@@ -1,0 +1,89 @@
+{
+ "email": "soundsofsolus@gmail.com",
+ "hero": "black-holes",
+ "sections": [
+  {
+   "id": "explainers",
+   "title": "Explainers",
+   "code": "E",
+   "note": "Short films that each explain one idea. 30 to 60 seconds, with voice-over, captions and sound. Vertical or widescreen.",
+   "films": [
+    {
+     "slug": "black-holes",
+     "thumb": "black-holes_feature.jpg",
+     "title": "When Black Holes Collide",
+     "desc": "Black hole mergers and gravitational waves. Neon line style.",
+     "dur": "0:45",
+     "feature": true
+    },
+    {
+     "slug": "kintsugi",
+     "thumb": "kintsugi.jpg",
+     "title": "Kintsugi",
+     "desc": "The Japanese craft of repairing pottery with gold. Ink wash style.",
+     "dur": "0:50"
+    },
+    {
+     "slug": "sisyphus",
+     "thumb": "sisyphus.jpg",
+     "title": "Sisyphus",
+     "desc": "Camus and the myth of Sisyphus. Shadow puppet style.",
+     "dur": "1:01"
+    },
+    {
+     "slug": "attachment",
+     "thumb": "attachment.jpg",
+     "title": "Attachment",
+     "desc": "Attachment theory in under a minute. Pop-up book style.",
+     "dur": "0:43"
+    }
+   ]
+  },
+  {
+   "id": "sports",
+   "title": "Sports",
+   "code": "S",
+   "note": "Football analysis for social media. Line-ups, transfers and league tables.",
+   "films": [
+    {
+     "slug": "united-xi",
+     "thumb": "united-perfect-xi.jpg",
+     "title": "A United eleven without Bruno",
+     "desc": "A full line-up explained pick by pick. Tactics board format.",
+     "dur": "1:15"
+    },
+    {
+     "slug": "palmer",
+     "thumb": "the-one-signing-palmer.jpg",
+     "title": "The one signing: Palmer",
+     "desc": "The case for signing Cole Palmer. Tactics board format.",
+     "dur": "0:39"
+    },
+    {
+     "slug": "go-down",
+     "thumb": "will-united-go-down.jpg",
+     "title": "Will United go down?",
+     "desc": "Manchester United's relegation risk, shown with the league table.",
+     "dur": "0:57"
+    }
+   ]
+  },
+  {
+   "id": "product-films",
+   "title": "Product films",
+   "code": "P",
+   "note": "Concept work for Arbikie Distillery. Not a paid commission.",
+   "films": [
+    {
+     "slug": "arbikie",
+     "thumb": "arbikie-the-wild-one.jpg",
+     "title": "Arbikie: The Wild One",
+     "desc": "A 15 second film for a single malt whisky.",
+     "dur": "0:15",
+     "wide": true
+    }
+   ]
+  }
+ ],
+ "hero_thumb": "black-holes_hero.jpg"
+}
