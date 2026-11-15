@@ -1,6 +1,6 @@
 {
  "email": "soundsofsolus@gmail.com",
- "hero": "card-payment",
+ "hero": "quantum",
  "sections": [
   {
    "id": "explainers",
@@ -9,19 +9,19 @@
    "note": "Short films that each explain one idea. 30 to 60 seconds, with voice-over, captions and sound. Vertical or widescreen.",
    "films": [
     {
-     "slug": "quantum",
-     "thumb": "quantum.jpg",
-     "title": "Quantum Computing",
-     "desc": "Why a quantum computer is not a faster laptop. Neon line style.",
-     "dur": "0:45",
-     "feature": true
-    },
-    {
      "slug": "card-payment",
      "thumb": "card-payment.jpg",
      "title": "How a Card Payment Works",
      "desc": "What happens between the tap and the money moving. Isometric style.",
-     "dur": "0:37"
+     "dur": "0:37",
+     "feature": true
+    },
+    {
+     "slug": "quantum",
+     "thumb": "quantum.jpg",
+     "title": "Quantum Computing",
+     "desc": "Why a quantum computer is not a faster laptop. Neon line style.",
+     "dur": "0:45"
     },
     {
      "slug": "tickwell",
@@ -106,5 +106,5 @@
    ]
   }
  ],
- "hero_thumb": "card-payment_hero.jpg"
+ "hero_thumb": "quantum.jpg"
 }

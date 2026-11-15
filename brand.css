@@ -1,0 +1,17 @@
+/* Solus FX branding, level 2 (Jordan's pick, 2026-11-15): near-black page, cream lines and type, orange accents, heavy headings kept */
+:root{--paper:#07080d;--cell:#0b0c13;--ink:#efe6d2;--red:#f0652f;--mute:#8d887c;--rule:1.5px solid rgba(239,230,210,.55)}
+body{background:#07080d}
+.sheet{background:#07080d}
+.mark{gap:12px}.ecl{width:34px;height:34px;flex:none}
+.nav a.cta{color:#07080d}
+.btn{color:#07080d}.btn.alt{color:var(--ink)}
+.btn:hover{box-shadow:4px 4px 0 var(--red)}
+.hero-r{background:radial-gradient(520px 520px at 50% 46%,rgba(46,70,190,.32),transparent 70%),#080a16}
+.hero-r .mono{color:#cfc8b8}
+.film{box-shadow:clamp(6px,.8vw,12px) clamp(6px,.8vw,12px) 0 var(--red)}
+.play{background:var(--ink)}
+.tile .d,.steps p{color:#b3ad9f}
+.tag{color:#07080d}
+.note.ink{background:var(--ink);color:#07080d}
+.contact p,.contact p.sub{color:#07080d}
+.btn.on-red{background:#07080d;color:var(--ink);border-color:#07080d}

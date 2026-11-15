@@ -15,8 +15,10 @@ h1{font-size:clamp(50px,8vw,118px)}
 .lb video{max-width:min(100%,1280px);max-height:calc(100vh - 90px);border:1.5px solid var(--paper);background:#000}
 .lb .x{position:absolute;top:14px;right:16px;font:500 13px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--paper);background:none;border:1.5px solid var(--paper);padding:10px 14px;cursor:pointer}
 .lb .t{position:absolute;left:16px;top:20px;color:var(--paper)}
+@media (max-width:980px){.grid>.note{grid-column:1/-1!important;border-right:0!important}}
 """
-head = head.replace('</style>', extra + '</style>')
+head = head.replace('</style>', extra + (D / 'brand.css').read_text() + '</style>').replace('<meta name="viewport"', '<meta name="theme-color" content="#07080d"><meta name="viewport"')
+MARK = '''<svg class="ecl" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#efe6d2" stroke-width="2.6"/><circle cx="61" cy="55" r="27" fill="none" stroke="#efe6d2" stroke-width="2.6"/><path d="M52.3 6.06A44 44 0 0 1 82.5 20.3" fill="none" stroke="#f0652f" stroke-width="3"/><path d="M93.6 55.4A44 44 0 0 1 92.6 61" fill="none" stroke="#f0652f" stroke-width="3"/></svg>'''
 films = {f['slug']: f for s in d['sections'] for f in s['films']}; hero = films[d['hero']]
 def tile(f, code, i, cls=''):
     wide = f.get('wide'); c = 'cell tile ' + ('feature ' if f.get('feature') else '') + ('w3 ' if wide else '') + cls
@@ -41,7 +43,7 @@ steps = [('Brief', 'You send the subject, the audience and where the film will b
 nav = ''.join(f'<a href="#{s["id"]}">{e(s["title"])}</a>' for s in d['sections'])
 body = f"""<body>
 <div class="sheet">
-<header class="top"><a class="mark cond" href="#">SOLUS FX</a><nav class="nav" aria-label="Main">{nav}<a href="#process">Process</a><a href="#contact" class="cta">Contact</a></nav></header>
+<header class="top"><a class="mark cond" href="#">{MARK}<span>SOLUS FX</span></a><nav class="nav" aria-label="Main">{nav}<a href="#process">Process</a><a href="#contact" class="cta">Contact</a></nav></header>
 <main>
 <section class="hero">
 <div class="hero-l">
