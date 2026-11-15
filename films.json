@@ -1,6 +1,6 @@
 {
  "email": "soundsofsolus@gmail.com",
- "hero": "black-holes",
+ "hero": "card-payment",
  "sections": [
   {
    "id": "explainers",
@@ -9,19 +9,40 @@
    "note": "Short films that each explain one idea. 30 to 60 seconds, with voice-over, captions and sound. Vertical or widescreen.",
    "films": [
     {
-     "slug": "black-holes",
-     "thumb": "black-holes_feature.jpg",
-     "title": "When Black Holes Collide",
-     "desc": "Black hole mergers and gravitational waves. Neon line style.",
+     "slug": "quantum",
+     "thumb": "quantum.jpg",
+     "title": "Quantum Computing",
+     "desc": "Why a quantum computer is not a faster laptop. Neon line style.",
      "dur": "0:45",
      "feature": true
     },
     {
-     "slug": "kintsugi",
-     "thumb": "kintsugi.jpg",
-     "title": "Kintsugi",
-     "desc": "The Japanese craft of repairing pottery with gold. Ink wash style.",
-     "dur": "0:50"
+     "slug": "card-payment",
+     "thumb": "card-payment.jpg",
+     "title": "How a Card Payment Works",
+     "desc": "What happens between the tap and the money moving. Isometric style.",
+     "dur": "0:37"
+    },
+    {
+     "slug": "tickwell",
+     "thumb": "tickwell.jpg",
+     "title": "Tickwell",
+     "desc": "Product film for an approvals tool. Tickwell is an invented product, made as a concept piece.",
+     "dur": "0:27"
+    },
+    {
+     "slug": "phishing",
+     "thumb": "phishing.jpg",
+     "title": "Spot a Phishing Email",
+     "desc": "Staff training film: three checks in ten seconds. Poster style.",
+     "dur": "0:34"
+    },
+    {
+     "slug": "black-holes",
+     "thumb": "black-holes_feature.jpg",
+     "title": "When Black Holes Collide",
+     "desc": "Black hole mergers and gravitational waves. Neon line style.",
+     "dur": "0:45"
     },
     {
      "slug": "sisyphus",
@@ -85,5 +106,5 @@
    ]
   }
  ],
- "hero_thumb": "black-holes_hero.jpg"
+ "hero_thumb": "card-payment_hero.jpg"
 }
