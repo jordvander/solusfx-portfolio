@@ -74,7 +74,6 @@ def top(pre=''):  # pre='index.html' on the other pages so the section links go 
 FOOT = (f'<footer class="foot mono"><span class="addr">{e(b["legal"])} {e(b["address"])}. {e(d["email"])}</span>'
         f'<span><a href="terms.html">Terms and refunds</a></span></footer>')
 FORM = f"""<form class="cform" action="{e(b['form_action'])}" method="POST">
-<input type="hidden" name="_subject" value="New Solus FX enquiry"><input type="hidden" name="_next" value="{e(b['site'])}/thanks.html"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
 <label class="hp" aria-hidden="true">Leave empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
 <label>Name<input name="name" required autocomplete="name"></label>
 <label>Email<input type="email" name="email" required autocomplete="email"></label>
@@ -113,6 +112,9 @@ body = f"""<body>
 </div>
 <div class="lb" id="lb" role="dialog" aria-modal="true"><span class="t mono" id="lbt"></span><button class="x" id="lbx">Close</button><video id="lbv" controls playsinline preload="none"></video></div>
 <script>
+const cf = document.querySelector('.cform');  // posts to the Apps Script web app (no readable response under no-cors), then shows thanks.html
+cf.addEventListener('submit', ev => {{ ev.preventDefault(); const btn = cf.querySelector('button'); btn.disabled = true; btn.textContent = 'Sending';
+  fetch(cf.action, {{ method: 'POST', mode: 'no-cors', body: new URLSearchParams(new FormData(cf)) }}).then(() => {{ location.href = 'thanks.html'; }}).catch(() => {{ btn.disabled = false; btn.textContent = 'Send enquiry'; alert('That did not send. Please email ' + {json.dumps(d['email'])} + ' instead.'); }}); }});
 const lb = document.getElementById('lb'), v = document.getElementById('lbv'), t = document.getElementById('lbt');
 const shut = () => {{ v.pause(); v.removeAttribute('src'); v.load(); lb.classList.remove('on'); }};
 document.querySelectorAll('[data-v]').forEach(b => b.addEventListener('click', () => {{ v.src = 'video/' + b.dataset.v + '.mp4'; t.textContent = b.dataset.t; lb.classList.add('on'); v.play().catch(() => {{}}); }}));
