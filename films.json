@@ -106,5 +106,13 @@
    ]
   }
  ],
- "hero_thumb": "quantum.jpg"
+ "hero_thumb": "quantum.jpg",
+ "business": {
+  "name": "Solus FX",
+  "legal": "Solus FX is the trading name of Jordan Van Der Westhuizen, sole trader.",
+  "address": "Brambles, Primitive Chapel Lane, South Killingholme, Immingham, DN40 3BU, United Kingdom",
+  "price_from": "£500",
+  "form_action": "https://formsubmit.co/soundsofsolus@gmail.com",
+  "site": "https://solusfx.co.uk"
+ }
 }

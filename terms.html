@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="theme-color" content="#07080d"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms and refunds. Solus FX.</title>
+<meta name="description" content="Solus FX. Animated explainers, sports animation and product films.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --paper:#efe8d8; --cell:#f6f1e5; --ink:#15130f; --red:#e3411d; --mute:#5c574d;
+  --rule:1.5px solid var(--ink);
+  --disp:"Archivo","Arial Narrow",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --pad:clamp(12px,2.3vw,32px); --in:clamp(10px,1vw,14px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.45 var(--disp);-webkit-font-smoothing:antialiased;padding:var(--pad)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.sheet{max-width:1640px;margin-inline:auto;border:var(--rule);background:var(--paper)}
+.cond{font-family:var(--disp);font-stretch:62%;font-weight:800;text-transform:uppercase;letter-spacing:-.005em}
+.mono{font:500 12px/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+
+/* header */
+.top{display:flex;align-items:stretch;border-bottom:var(--rule)}
+.mark{flex:1;display:flex;align-items:center;padding:14px clamp(14px,1.6vw,24px);font-size:clamp(26px,2.4vw,34px);line-height:1;white-space:nowrap}
+.nav{display:flex}
+.nav a{display:flex;align-items:center;padding:0 clamp(12px,1.7vw,26px);border-left:var(--rule);font:500 12.5px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;transition:background .15s,color .15s}
+.nav a:hover{background:var(--ink);color:var(--paper)}
+.nav a.cta{background:var(--red);color:#fff}
+
+/* hero */
+.hero{display:grid;grid-template-columns:3fr 2fr;border-bottom:var(--rule)}
+.hero-l{display:flex;flex-direction:column;justify-content:space-between;gap:36px;padding:clamp(16px,1.9vw,28px);min-width:0}
+.hero-l .mono{display:flex;justify-content:space-between;gap:16px;color:var(--mute)}
+h1{font-size:clamp(58px,9.3vw,136px);line-height:.85;margin:0}
+.hero-b{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 32px;align-items:end;border-top:var(--rule);padding-top:clamp(16px,1.6vw,22px)}
+.lede{margin:0;font-size:clamp(16.5px,1.4vw,20px);line-height:1.4;font-weight:500;max-width:27em}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:12px;font:700 15.5px/1 var(--disp);padding:17px 22px;border:var(--rule);background:var(--ink);color:var(--paper);transition:transform .15s,box-shadow .15s}
+.btn.alt{background:transparent;color:var(--ink)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.btn.on-red:hover{box-shadow:4px 4px 0 rgba(21,19,15,.35)}
+.hero-r{background:var(--red);border-left:var(--rule);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(16px,1.8vw,26px);padding:clamp(24px,3vw,44px) 20px clamp(16px,1.6vw,22px);position:relative}
+.film{position:relative;display:block;width:min(100%,clamp(220px,25vw,372px));aspect-ratio:9/16;border:var(--rule);box-shadow:clamp(6px,.8vw,12px) clamp(6px,.8vw,12px) 0 var(--ink);background:var(--ink)}
+.film img{width:100%;height:100%;object-fit:cover}
+.play{position:absolute;left:14px;bottom:14px;width:60px;height:60px;border-radius:50%;background:var(--paper);border:var(--rule);display:grid;place-items:center}
+.play svg{width:17px;height:17px;margin-left:3px}
+.hero-r .mono{align-self:stretch;display:flex;justify-content:space-between;gap:12px;color:var(--ink);padding-inline:4px}
+
+/* section bars */
+.bar{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:end;gap:10px clamp(14px,2vw,28px);padding:clamp(34px,4.6vw,68px) clamp(14px,1.9vw,28px) clamp(12px,1.3vw,18px);border-bottom:var(--rule)}
+.bar .mono{padding-bottom:.9em}
+h2{font-size:clamp(50px,7.6vw,118px);line-height:.82;margin:0}
+
+/* ruled contact sheet */
+.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.cell{border-right:var(--rule);border-bottom:var(--rule);padding:var(--in);display:flex;flex-direction:column;min-width:0;background:var(--cell)}
+.grid>.cell:nth-child(5n),.grid>.cell.last{border-right:0}
+.tile .ph{display:block;position:relative;aspect-ratio:9/16;overflow:hidden;background:var(--ink);border:var(--rule)}
+.tile .ph.wide{aspect-ratio:16/9}
+.tile .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.tile:hover .ph img{transform:scale(1.03)}
+.tile .mono{display:flex;justify-content:space-between;gap:8px;padding-top:11px;color:var(--mute)}
+.tile b{display:block;font-size:clamp(22px,1.95vw,28px);line-height:.95;margin-top:9px;transition:color .15s}
+.tile:hover b{color:var(--red)}
+.tile .d{display:block;font-size:13.5px;line-height:1.38;color:#3b372f;margin-top:7px;padding-bottom:6px}
+.feature{grid-column:span 2;grid-row:span 2}
+.feature b{font-size:clamp(34px,4.2vw,64px);line-height:.86;margin-top:12px}
+.feature .d{font-size:clamp(14px,1.2vw,17px);max-width:26em}
+.tag{position:absolute;left:0;top:0;background:var(--red);color:#fff;font:500 11.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;border-right:var(--rule);border-bottom:var(--rule)}
+.w2{grid-column:span 2}.w3{grid-column:span 3}
+.note{justify-content:space-between;gap:24px;padding:clamp(12px,1.4vw,20px)}
+.note p{margin:0;font-size:clamp(24px,2.5vw,38px);line-height:.92}
+.note.big p{font-size:clamp(30px,4.3vw,66px);line-height:.88}
+.note.ink{background:var(--ink);color:var(--paper)}
+.note .go{font:500 12.5px/1.2 var(--mono);letter-spacing:.04em;text-transform:uppercase;display:flex;justify-content:space-between;gap:8px;border-top:1.5px solid currentColor;padding-top:12px}
+
+/* how */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));counter-reset:s}
+.steps li{counter-increment:s;border-right:var(--rule);border-bottom:var(--rule);padding:clamp(14px,1.6vw,24px);min-height:clamp(180px,17vw,250px);display:flex;flex-direction:column;background:var(--cell)}
+.steps li:last-child{border-right:0}
+.steps .mono{display:flex;justify-content:space-between;color:var(--mute)}
+.steps .mono::before{content:"0" counter(s)}
+.steps .mono span{color:var(--red);font-size:17px;line-height:.7}
+.steps h3{font-size:clamp(34px,3.7vw,56px);line-height:.86;margin:auto 0 10px}
+.steps p{margin:0;font-size:15.5px;max-width:19em;color:#3b372f}
+
+/* contact */
+.contact{background:var(--red);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 40px;align-items:end;padding:clamp(40px,6vw,96px) clamp(14px,1.9vw,28px) clamp(20px,2.4vw,36px);border-bottom:var(--rule)}
+.contact p{font-size:clamp(54px,9.6vw,150px);line-height:.82;margin:0;max-width:8.6em;text-wrap:balance}
+.btn.big{font-size:19px;padding:24px 34px}
+.foot{display:flex;justify-content:space-between;gap:16px;padding:14px clamp(14px,1.9vw,28px);color:var(--mute)}
+
+@media (max-width:980px){
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .hero-r{border-left:0;border-top:var(--rule)}
+  .hero-b{grid-template-columns:minmax(0,1fr)}
+  h1{font-size:clamp(54px,13.6vw,128px)}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid>.cell:nth-child(5n),.grid>.cell.last{border-right:var(--rule)}
+  .feature{grid-row:auto}
+  .feature,.w3,.w2.keep{grid-column:span 2;border-right:0!important}
+  .w2{grid-column:span 1}
+  .grid>.cell.r0{border-right:0}
+  .note p,.note.big p{font-size:clamp(24px,6.4vw,44px)}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps li:nth-child(2n){border-right:0}
+  .contact{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .top{flex-direction:column}
+  .mark{border-bottom:var(--rule);padding-block:12px}
+  .nav{overflow-x:auto;scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{padding:12px 6px;font-size:10.5px;letter-spacing:.01em;flex:1 1 auto;justify-content:center}
+  .steps .mono span{transform:rotate(90deg)}
+  .nav a:first-child{border-left:0}
+  .hero-l .mono span:last-child{display:none}
+  .film{width:min(72%,300px)}
+  .actions .btn{flex:1 1 auto;justify-content:center}
+  .bar .mono:last-child{grid-column:1/-1;padding-bottom:0}
+  .tile .d{font-size:13px}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .steps li{border-right:0;min-height:0;gap:26px}
+  .btn.big{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+
+.tile,.film{cursor:pointer;text-align:left;font:inherit;color:inherit}
+button.tile{border-left:0;border-top:0;border-radius:0;appearance:none}
+button.film{padding:0;border-radius:0;appearance:none}
+.note p.plain{font:500 clamp(16px,1.25vw,19px)/1.4 var(--disp);font-stretch:100%;text-transform:none;letter-spacing:0;max-width:30em}
+h1{font-size:clamp(50px,8vw,118px)}
+.contact p.sub{font:500 clamp(17px,1.5vw,22px)/1.4 var(--disp);font-stretch:100%;text-transform:none;letter-spacing:0;margin-top:18px;max-width:26em}
+.lb{position:fixed;inset:0;background:rgba(21,19,15,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.lb.on{display:flex}
+.lb video{max-width:min(100%,1280px);max-height:calc(100vh - 90px);border:1.5px solid var(--paper);background:#000}
+.lb .x{position:absolute;top:14px;right:16px;font:500 13px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--paper);background:none;border:1.5px solid var(--paper);padding:10px 14px;cursor:pointer}
+.lb .t{position:absolute;left:16px;top:20px;color:var(--paper)}
+@media (max-width:980px){.grid>.note{grid-column:1/-1!important;border-right:0!important}}
+.price{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.price>div{border-right:var(--rule);border-bottom:var(--rule);padding:clamp(14px,1.6vw,24px);background:var(--cell);display:flex;flex-direction:column;justify-content:space-between;gap:22px;min-height:clamp(170px,15vw,230px)}
+.price>div:last-child{border-right:0}
+.price b{font-size:clamp(34px,3.7vw,56px);line-height:.86}
+.price p{margin:0;font-size:15.5px;line-height:1.45;max-width:24em;color:#b3ad9f}
+.price a,.doc a,.foot a,.cform .alt a{text-decoration:underline;text-underline-offset:3px}
+.contact{align-items:start}
+.cform{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;width:min(100%,580px)}
+.cform label{display:flex;flex-direction:column;gap:7px;font:500 11.5px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:#07080d}
+.cform .full,.cform button,.cform .alt{grid-column:1/-1}
+.cform input,.cform select,.cform textarea{font:500 16px/1.3 var(--disp);color:var(--ink);background:#07080d;border:1.5px solid #07080d;border-radius:0;padding:13px 12px;width:100%}
+.cform textarea{min-height:130px;resize:vertical}
+.cform input:focus,.cform select:focus,.cform textarea:focus{outline:2px solid #07080d;outline-offset:2px}
+.cform .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cform button{justify-content:center;cursor:pointer}
+.contact .cform .alt{font:500 14.5px/1.4 var(--disp);font-stretch:100%;text-transform:none;letter-spacing:0;max-width:none;margin:2px 0 0}
+.foot{flex-wrap:wrap;line-height:1.5}
+.foot .addr{text-transform:none;letter-spacing:.01em}
+.doc{padding:clamp(20px,3vw,44px) clamp(14px,1.9vw,28px) clamp(40px,5vw,72px)}
+.doc>*{max-width:44em}
+.doc h3{font-size:clamp(26px,2.6vw,36px);line-height:.95;margin:38px 0 10px}
+.doc h3:first-child{margin-top:0}
+.doc p,.doc li{font-size:16.5px;line-height:1.55;color:#cfc8b8;margin:0 0 10px}
+.doc ul{padding-left:1.2em;margin:0 0 10px}
+@media (max-width:980px){.price{grid-template-columns:minmax(0,1fr)}.price>div{border-right:0;min-height:0}}
+@media (max-width:640px){.cform{grid-template-columns:minmax(0,1fr)}}
+/* Solus FX branding, level 2 (Jordan's pick, 2026-11-15): near-black page, cream lines and type, orange accents, heavy headings kept */
+:root{--paper:#07080d;--cell:#0b0c13;--ink:#efe6d2;--red:#f0652f;--mute:#8d887c;--rule:1.5px solid rgba(239,230,210,.55)}
+body{background:#07080d}
+.sheet{background:#07080d}
+.mark{gap:12px}.ecl{width:34px;height:34px;flex:none}
+.nav a.cta{color:#07080d}
+.btn{color:#07080d}.btn.alt{color:var(--ink)}
+.btn:hover{box-shadow:4px 4px 0 var(--red)}
+.hero-r{background:radial-gradient(520px 520px at 50% 46%,rgba(46,70,190,.32),transparent 70%),#080a16}
+.hero-r .mono{color:#cfc8b8}
+.film{box-shadow:clamp(6px,.8vw,12px) clamp(6px,.8vw,12px) 0 var(--red)}
+.play{background:var(--ink)}
+.tile .d,.steps p{color:#b3ad9f}
+.tag{color:#07080d}
+.note.ink{background:var(--ink);color:#07080d}
+.contact p,.contact p.sub{color:#07080d}
+.btn.on-red{background:#07080d;color:var(--ink);border-color:#07080d}
+</style>
+</head>
+<body>
+<div class="sheet">
+<header class="top"><a class="mark cond" href="index.html"><svg class="ecl" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#efe6d2" stroke-width="2.6"/><circle cx="61" cy="55" r="27" fill="none" stroke="#efe6d2" stroke-width="2.6"/><path d="M52.3 6.06A44 44 0 0 1 82.5 20.3" fill="none" stroke="#f0652f" stroke-width="3"/><path d="M93.6 55.4A44 44 0 0 1 92.6 61" fill="none" stroke="#f0652f" stroke-width="3"/></svg><span>SOLUS FX</span></a><nav class="nav" aria-label="Main"><a href="index.html#explainers">Explainers</a><a href="index.html#sports">Sports</a><a href="index.html#product-films">Product films</a><a href="index.html#pricing">Pricing</a><a href="index.html#contact" class="cta">Contact</a></nav></header>
+<main><section><div class="bar"><span class="mono">Updated 18 November 2026</span><h2 class="cond">Terms and refunds</h2><span class="mono"></span></div>
+<div class="doc"><h3 class="cond">Who we are</h3><p>Solus FX is the trading name of Jordan Van Der Westhuizen, sole trader.</p><p>Address: Brambles, Primitive Chapel Lane, South Killingholme, Immingham, DN40 3BU, United Kingdom.</p><p>Email: <a href="mailto:soundsofsolus@gmail.com">soundsofsolus@gmail.com</a>.</p><h3 class="cond">Services</h3><p>Solus FX makes short animated films: explainers, sports animation and product films. Each project is agreed in writing, by email, with a fixed quote that states the length of the film, the sizes delivered, the delivery date and the price.</p><h3 class="cond">Prices</h3><p>Prices start from £500. The price depends on the length of the film, the number of sizes and versions, and whether it needs voice-over. Prices are in pounds sterling. Any VAT due is shown on the quote.</p><p>To discuss a different price, a retainer or ongoing work, email <a href="mailto:soundsofsolus@gmail.com">soundsofsolus@gmail.com</a> or use the <a href="index.html#contact">contact form</a>.</p><h3 class="cond">Booking and payment</h3><p>A project is booked when you accept the quote and pay a 50% deposit. The remaining 50% is due when you approve the finished film, before the final files are sent. Payment is by bank transfer or card, as shown on the invoice.</p><h3 class="cond">Changes</h3><p>Two rounds of changes are included. Further changes, or changes to a script or style you have already approved, are quoted before the work is done.</p><h3 class="cond">Cancellation and refunds</h3><p>You can cancel a project at any time by email.</p><ul><li>Cancelled before script work starts: the deposit is refunded in full.</li><li>Cancelled after script work starts: the deposit is not refundable. It covers the work already done.</li><li>Cancelled after you approve the finished film: the balance is due.</li><li>If Solus FX cancels a project, any money paid for work not delivered is refunded in full.</li></ul><p>Refunds go back to the original payment method within 14 days.</p><h3 class="cond">Delivery and use</h3><p>Films are delivered as digital files by download link. Once the project is paid in full, you can use the film for any purpose. Solus FX may show the film in its portfolio unless you ask it not to before the project starts.</p><h3 class="cond">Privacy</h3><p>When you send an enquiry, the details you give (name, email, company and message) are used only to reply and to quote. They are not shared or sold. Ask at any time and they will be deleted.</p><h3 class="cond">Your rights</h3><p>These terms do not affect your statutory rights.</p></div></section></main>
+<footer class="foot mono"><span class="addr">Solus FX is the trading name of Jordan Van Der Westhuizen, sole trader. Brambles, Primitive Chapel Lane, South Killingholme, Immingham, DN40 3BU, United Kingdom. soundsofsolus@gmail.com</span><span><a href="terms.html">Terms and refunds</a></span></footer>
+</div>
+</body></html>

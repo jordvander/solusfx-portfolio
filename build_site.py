@@ -1,4 +1,4 @@
-"""build_site.py: write index.html from films.json (the film list and all copy) and _head.html (fonts + the look's stylesheet).
+"""build_site.py: write index.html, terms.html and thanks.html from films.json (the film list, business details and all copy) and _head.html (fonts + the look's stylesheet).
 Add a film: encode it (encode.sh), put a thumbnail in thumbs/, add a row to films.json, run this again."""
 import json, html, pathlib
 D = pathlib.Path(__file__).parent; d = json.load(open(D / 'films.json')); e = html.escape
@@ -16,6 +16,32 @@ h1{font-size:clamp(50px,8vw,118px)}
 .lb .x{position:absolute;top:14px;right:16px;font:500 13px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--paper);background:none;border:1.5px solid var(--paper);padding:10px 14px;cursor:pointer}
 .lb .t{position:absolute;left:16px;top:20px;color:var(--paper)}
 @media (max-width:980px){.grid>.note{grid-column:1/-1!important;border-right:0!important}}
+.price{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.price>div{border-right:var(--rule);border-bottom:var(--rule);padding:clamp(14px,1.6vw,24px);background:var(--cell);display:flex;flex-direction:column;justify-content:space-between;gap:22px;min-height:clamp(170px,15vw,230px)}
+.price>div:last-child{border-right:0}
+.price b{font-size:clamp(34px,3.7vw,56px);line-height:.86}
+.price p{margin:0;font-size:15.5px;line-height:1.45;max-width:24em;color:#b3ad9f}
+.price a,.doc a,.foot a,.cform .alt a{text-decoration:underline;text-underline-offset:3px}
+.contact{align-items:start}
+.cform{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;width:min(100%,580px)}
+.cform label{display:flex;flex-direction:column;gap:7px;font:500 11.5px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:#07080d}
+.cform .full,.cform button,.cform .alt{grid-column:1/-1}
+.cform input,.cform select,.cform textarea{font:500 16px/1.3 var(--disp);color:var(--ink);background:#07080d;border:1.5px solid #07080d;border-radius:0;padding:13px 12px;width:100%}
+.cform textarea{min-height:130px;resize:vertical}
+.cform input:focus,.cform select:focus,.cform textarea:focus{outline:2px solid #07080d;outline-offset:2px}
+.cform .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cform button{justify-content:center;cursor:pointer}
+.contact .cform .alt{font:500 14.5px/1.4 var(--disp);font-stretch:100%;text-transform:none;letter-spacing:0;max-width:none;margin:2px 0 0}
+.foot{flex-wrap:wrap;line-height:1.5}
+.foot .addr{text-transform:none;letter-spacing:.01em}
+.doc{padding:clamp(20px,3vw,44px) clamp(14px,1.9vw,28px) clamp(40px,5vw,72px)}
+.doc>*{max-width:44em}
+.doc h3{font-size:clamp(26px,2.6vw,36px);line-height:.95;margin:38px 0 10px}
+.doc h3:first-child{margin-top:0}
+.doc p,.doc li{font-size:16.5px;line-height:1.55;color:#cfc8b8;margin:0 0 10px}
+.doc ul{padding-left:1.2em;margin:0 0 10px}
+@media (max-width:980px){.price{grid-template-columns:minmax(0,1fr)}.price>div{border-right:0;min-height:0}}
+@media (max-width:640px){.cform{grid-template-columns:minmax(0,1fr)}}
 """
 head = head.replace('</style>', extra + (D / 'brand.css').read_text() + '</style>').replace('<meta name="viewport"', '<meta name="theme-color" content="#07080d"><meta name="viewport"')
 MARK = '''<svg class="ecl" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="#efe6d2" stroke-width="2.6"/><circle cx="61" cy="55" r="27" fill="none" stroke="#efe6d2" stroke-width="2.6"/><path d="M52.3 6.06A44 44 0 0 1 82.5 20.3" fill="none" stroke="#f0652f" stroke-width="3"/><path d="M93.6 55.4A44 44 0 0 1 92.6 61" fill="none" stroke="#f0652f" stroke-width="3"/></svg>'''
@@ -40,10 +66,27 @@ def section(n, s):
             f'<div class="grid">{"".join(cells)}</div></section>')
 steps = [('Brief', 'You send the subject, the audience and where the film will be shown.'), ('Script', 'I write the script. You approve it before any design starts.'),
          ('Style frame', 'You see one finished frame and approve the look.'), ('Film', 'The finished film with voice-over, captions and sound, in the sizes you need.')]
-nav = ''.join(f'<a href="#{s["id"]}">{e(s["title"])}</a>' for s in d['sections'])
+b = d['business']
+def top(pre=''):  # pre='index.html' on the other pages so the section links go back to the home page
+    nav = ''.join(f'<a href="{pre}#{s["id"]}">{e(s["title"])}</a>' for s in d['sections'])
+    return (f'<header class="top"><a class="mark cond" href="{pre or "#"}">{MARK}<span>SOLUS FX</span></a><nav class="nav" aria-label="Main">{nav}'
+            f'<a href="{pre}#pricing">Pricing</a><a href="{pre}#contact" class="cta">Contact</a></nav></header>')
+FOOT = (f'<footer class="foot mono"><span class="addr">{e(b["legal"])} {e(b["address"])}. {e(d["email"])}</span>'
+        f'<span><a href="terms.html">Terms and refunds</a></span></footer>')
+FORM = f"""<form class="cform" action="{e(b['form_action'])}" method="POST">
+<input type="hidden" name="_subject" value="New Solus FX enquiry"><input type="hidden" name="_next" value="{e(b['site'])}/thanks.html"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
+<label class="hp" aria-hidden="true">Leave empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+<label>Name<input name="name" required autocomplete="name"></label>
+<label>Email<input type="email" name="email" required autocomplete="email"></label>
+<label>Company<input name="company" autocomplete="organization"></label>
+<label>Film type<select name="film_type"><option>Explainer</option><option>Sports</option><option>Product film</option><option>Something else</option></select></label>
+<label class="full">About the project<textarea name="message" required placeholder="Subject, audience, where it will be shown, and when you need it."></textarea></label>
+<button class="btn big on-red" type="submit">Send enquiry</button>
+<p class="alt">Or email <a href="mailto:{e(d['email'])}">{e(d['email'])}</a>. Booking follows the <a href="terms.html">terms and refund policy</a>.</p>
+</form>"""
 body = f"""<body>
 <div class="sheet">
-<header class="top"><a class="mark cond" href="#">{MARK}<span>SOLUS FX</span></a><nav class="nav" aria-label="Main">{nav}<a href="#process">Process</a><a href="#contact" class="cta">Contact</a></nav></header>
+{top()}
 <main>
 <section class="hero">
 <div class="hero-l">
@@ -58,9 +101,15 @@ body = f"""<body>
 <div id="work">{''.join(section(i, s) for i, s in enumerate(d['sections'], 1))}</div>
 <section id="process"><div class="bar"><span class="mono">{len(d['sections']) + 1:02d}</span><h2 class="cond">Process</h2><span class="mono">Four steps</span></div>
 <ol class="steps">{''.join(f'<li><span class="mono"></span><h3 class="cond">{a}</h3><p>{b}</p></li>' for a, b in steps)}</ol></section>
-<section class="contact" id="contact"><div><p class="cond">Contact</p><p class="sub">For quotes and availability, email Jordan at {e(d['email'])}.</p></div><a class="btn big on-red" href="mailto:{e(d['email'])}">Email Jordan</a></section>
+<section id="pricing"><div class="bar"><span class="mono">{len(d['sections']) + 2:02d}</span><h2 class="cond">Pricing</h2><span class="mono">Fixed quotes</span></div>
+<div class="price">
+<div><b class="cond">From {e(b['price_from'])}</b><p>The price depends on the length of the film, the number of sizes and versions, and whether it needs voice-over. To discuss a different budget, a retainer or ongoing work, <a href="#contact">get in touch</a>.</p></div>
+<div><b class="cond">Fixed quote</b><p>You get a fixed price after the brief, before any work starts. It states the length, the sizes, the delivery date and the cost.</p></div>
+<div><b class="cond">50% deposit</b><p>A 50% deposit books the project. The balance is due when you approve the finished film. Two rounds of changes are included. See the <a href="terms.html">terms and refund policy</a>.</p></div>
+</div></section>
+<section class="contact" id="contact"><div><p class="cond">Contact</p><p class="sub">For quotes and availability, send the form. Jordan replies by email.</p></div>{FORM}</section>
 </main>
-<footer class="foot mono"><span>Solus FX</span><span>United Kingdom, 2026</span></footer>
+{FOOT}
 </div>
 <div class="lb" id="lb" role="dialog" aria-modal="true"><span class="t mono" id="lbt"></span><button class="x" id="lbx">Close</button><video id="lbv" controls playsinline preload="none"></video></div>
 <script>
@@ -71,3 +120,29 @@ document.getElementById('lbx').addEventListener('click', shut); lb.addEventListe
 </script>
 </body></html>"""
 (D / 'index.html').write_text(head + body); print('wrote index.html', len(head + body))
+
+TERMS = [
+ ('Who we are', [f'{b["legal"]}', f'Address: {b["address"]}.', f'Email: <a href="mailto:{e(d["email"])}">{e(d["email"])}</a>.']),
+ ('Services', ['Solus FX makes short animated films: explainers, sports animation and product films. Each project is agreed in writing, by email, with a fixed quote that states the length of the film, the sizes delivered, the delivery date and the price.']),
+ ('Prices', [f'Prices start from {b["price_from"]}. The price depends on the length of the film, the number of sizes and versions, and whether it needs voice-over. Prices are in pounds sterling. Any VAT due is shown on the quote.', f'To discuss a different price, a retainer or ongoing work, email <a href="mailto:{e(d["email"])}">{e(d["email"])}</a> or use the <a href="index.html#contact">contact form</a>.']),
+ ('Booking and payment', ['A project is booked when you accept the quote and pay a 50% deposit. The remaining 50% is due when you approve the finished film, before the final files are sent. Payment is by bank transfer or card, as shown on the invoice.']),
+ ('Changes', ['Two rounds of changes are included. Further changes, or changes to a script or style you have already approved, are quoted before the work is done.']),
+ ('Cancellation and refunds', ['You can cancel a project at any time by email.', '<ul><li>Cancelled before script work starts: the deposit is refunded in full.</li><li>Cancelled after script work starts: the deposit is not refundable. It covers the work already done.</li><li>Cancelled after you approve the finished film: the balance is due.</li><li>If Solus FX cancels a project, any money paid for work not delivered is refunded in full.</li></ul>', 'Refunds go back to the original payment method within 14 days.']),
+ ('Delivery and use', ['Films are delivered as digital files by download link. Once the project is paid in full, you can use the film for any purpose. Solus FX may show the film in its portfolio unless you ask it not to before the project starts.']),
+ ('Privacy', ['When you send an enquiry, the details you give (name, email, company and message) are used only to reply and to quote. They are not shared or sold. Ask at any time and they will be deleted.']),
+ ('Your rights', ['These terms do not affect your statutory rights.']),
+]
+def page(fname, title, label, inner):
+    h = head.replace('<title>Solus FX. Animated explainers, sports and product films.</title>', f'<title>{e(title)}. Solus FX.</title>')
+    (D / fname).write_text(h + f"""<body>
+<div class="sheet">
+{top('index.html')}
+<main><section><div class="bar"><span class="mono">{e(label)}</span><h2 class="cond">{e(title)}</h2><span class="mono"></span></div>
+<div class="doc">{inner}</div></section></main>
+{FOOT}
+</div>
+</body></html>"""); print('wrote', fname)
+page('terms.html', 'Terms and refunds', 'Updated 18 November 2026',
+     ''.join(f'<h3 class="cond">{t}</h3>' + ''.join(x if x.startswith('<ul>') else f'<p>{x}</p>' for x in ps) for t, ps in TERMS))
+page('thanks.html', 'Thanks', 'Message sent',
+     '<p>Your message has been sent. Jordan will reply by email.</p><p><a href="index.html">Back to the films</a></p>')
